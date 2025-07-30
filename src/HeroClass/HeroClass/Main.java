@@ -6,7 +6,7 @@ class Main {
 
     static void warScream () {
 
-        System.out.println(" For the emprezxsssror ");
+        System.out.println(" For the empreszxsssror ");
 
     }
 
