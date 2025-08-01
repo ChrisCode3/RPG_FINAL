@@ -51,11 +51,12 @@ class Main {
 
         gameMap testMap = new gameMap(Warrior , newGame.monsters);
 
-     //   testMap.traverseMap();
+
+        testMap.traverseMap();
 
 
 
-        CombatSystem newCombat = new CombatSystem( Warrior , newGame.monsters );
+    //    CombatSystem newCombat = new CombatSystem( Warrior , newGame.monsters );
 
 
       //  System.out.println("hello");
@@ -63,10 +64,10 @@ class Main {
 
 
 
-        newCombat.Combat();
+     //   newCombat.Combat();
 
 
-        gameMap newMap  = new gameMap(Warrior , newGame.monsters);
+    //    gameMap newMap  = new gameMap(Warrior , newGame.monsters);
 
 
 

@@ -59,6 +59,9 @@ public class gameMap {
 
 
 
+
+
+
         MonsterClass enemy = manyEnemy.get(0);
 
         CombatSystem encounter  = new CombatSystem( player ,manyEnemy);
@@ -69,7 +72,7 @@ public class gameMap {
 
         myMap[0][0] = player;
 
-        myMap[2][0] = enemy;
+     //   myMap[2][0] = enemy;
 
 
         for (int l = 0; l < myMap.length; l++) {
@@ -81,6 +84,7 @@ public class gameMap {
 
 
         Random random = new Random();
+
         do {
 
             enemyRow = random.nextInt(4);
@@ -93,7 +97,7 @@ public class gameMap {
 
         column = 0;
 
-
+        int[] enemyLocation= new int[]{enemyRow, enemyColumn};
 
 
         for (int i = 0; i < 100; i++) {
@@ -155,9 +159,11 @@ public class gameMap {
 
             }
 
-         /*   if (myMap[column][row] == myMap[enemyLocation[0]][enemyLocation[1]]) {
+            if (myMap[row][column] == myMap[enemyLocation[0]][enemyLocation[1]]) {
                 System.out.println( " there is a monster here");
-            }*/
+
+                encounter.Combat();
+            }
 
 
 
