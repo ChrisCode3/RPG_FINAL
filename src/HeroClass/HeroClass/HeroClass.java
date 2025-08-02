@@ -6,8 +6,8 @@ import java.util.Scanner;
 
 
 public class HeroClass  extends  GameEntity {
-
     public enum AttackType {
+
         SLASH("Slash", 30),
         FIREBALL("Fireball", 20),
         BACKSTAB("Backstab", 10);
@@ -16,48 +16,26 @@ public class HeroClass  extends  GameEntity {
         final String type;
 
         AttackType(String type, int damage) {
-
             this.type = type;
             this.damage = damage;
-
         }
     }
 
     public int getAttack() {
-
         Scanner myScanner = new Scanner(System.in);
-        boolean correctType = false;
         while ( true) {
-
             System.out.println("Enter your attack");
             System.out.println(" this are the options" + Arrays.toString(AttackType.values()));
             String userAttack = myScanner.nextLine().trim().toUpperCase();
-
-
             try {
                 AttackType attack = AttackType.valueOf(userAttack);
-
-              /*  getAttackDmg(userAttack);*/
                 System.out.println( " you use "  + attack.type + " the damage of the attack is " + attack.damage);
-
-
               return attack.damage;
-
-
             } catch (IllegalArgumentException e) {
                 System.out.println( "this is not the correct attack - try again" );
             }
         }
     }
-
-
-
-    public enum WarrAttacks  {
-
-        Slash, Crush, Stab
-    }
-
-
 
     private String name;
     private String spec;
@@ -66,8 +44,6 @@ public class HeroClass  extends  GameEntity {
     public double stam;
     public double weapon;
 
-
-
     public HeroClass ( String name , String spec ,   int hp,  double str , double stam , double weapon) {
         this.hp = hp;
         this.stam = stam ;
@@ -75,10 +51,7 @@ public class HeroClass  extends  GameEntity {
         this.str = str;
         this.spec = spec;
         this.weapon = weapon;
-
     }
-
-
 
     @Override
     public String toString()
@@ -148,18 +121,6 @@ public class HeroClass  extends  GameEntity {
     public void healpot () {
        this.hp = this.hp + 50;
 
-    }
-
-    @Override
-    public String toString() {
-        return   "HeroClass{" +
-                "name='" + name + '\'' + "," +
-                " spec='" + spec + '\'' +
-                ", hp=" + hp +
-                ", str=" + str +
-                ", stam=" + stam +
-                ", weapon=" + weapon +
-                '}';
     }
 
     public int getHp() {

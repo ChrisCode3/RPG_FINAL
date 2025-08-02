@@ -50,7 +50,7 @@ public class GameMap {
         GameEntity[][] myMap = new GameEntity[row][column];
         myMap[0][0] = player;
 
-     //   myMap[2][0] = enemy;
+
 
 
         for (int l = 0; l < myMap.length; l++) {
@@ -75,35 +75,22 @@ public class GameMap {
         int[] enemyLocation= new int[]{enemyRow, enemyColumn};
 
         for (int i = 0; i < 100; i++) {
-
-
             Scanner myObj = new Scanner(System.in);  // Create a Scanner object
             System.out.println(" Move your character");
 
             String userName = myObj.nextLine();  // Read user input
 
-
-
             if (Objects.equals(userName, "s")) {
                row  = row  + DirectionY(Down_Key_S);
                 myMap[row][column] = this.player;
                myMap[row - 1][column] = null;
-/*
-            } else if (userName.equals("w") && row != 0) {
-
-                myMap[row + DirectionX(zeroMovement)][column + DirectionY(Up_Key_W)] = startingLocation;
-
-            }*/
             }
             if (Objects.equals(userName, "w")) {
 
                row= row  +DirectionY(Up_Key_W);
                 myMap[row][column] = this.player;
                 myMap[row +1 ][column] = null;
-
             }
-
-
             if (Objects.equals(userName, "d") )  {
 
                 column = column +DirectionX(Right_Key_D);
@@ -117,9 +104,7 @@ public class GameMap {
                 column = column +DirectionX(Left_Key_A);
                 myMap[row][column] = this.player;
                  myMap[row][column + 1] = null;
-
             }
-
 
             for (int l = 0; l < myMap.length; l++) {
 
