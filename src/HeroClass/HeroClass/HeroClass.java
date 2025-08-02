@@ -7,7 +7,6 @@ import java.util.Scanner;
 
 class HeroClass  extends  GameEntity {
 
-
     public enum AttackType {
         SLASH("Slash", 30),
         FIREBALL("Fireball", 20),
@@ -20,15 +19,14 @@ class HeroClass  extends  GameEntity {
 
             this.type = type;
             this.damage = damage;
+
         }
     }
 
     public int getAttack() {
 
         Scanner myScanner = new Scanner(System.in);
-
         boolean correctType = false;
-
         while ( true) {
 
             System.out.println("Enter your attack");
@@ -50,10 +48,7 @@ class HeroClass  extends  GameEntity {
                 System.out.println( "this is not the correct attack - try again" );
             }
         }
-
     }
-
-
 
 
 
@@ -70,18 +65,6 @@ class HeroClass  extends  GameEntity {
     public double str;
     public double stam;
     public double weapon;
-
-// Directions
-
-    public int Up_Key_W = -1; // y axis
-
-    public int Down_Key_S = 1; // y axis
-
-    public int Right_Key_D = 1;// x axis
-
-    public int Left_Key_A = -1; // x axis
-
-
 
 
 

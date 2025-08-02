@@ -33,13 +33,7 @@ public class CombatSystem {
 
             System.out.println( " this is in the myap " +  myMap[0][2]);
 
-
         }
-
-
-
-
-
 
 
 

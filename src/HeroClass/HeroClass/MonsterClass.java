@@ -6,6 +6,7 @@ import java.util.Random;
  class MonsterClass  extends  GameEntity{
 
     private String name;
+
     public int hp;
 
     public double str;
@@ -102,20 +103,7 @@ import java.util.Random;
         }
     }*/
 
-  /*  public  String test3 (int x) {
 
-        if ( x == 30) {
-
-            return MonsterAttackType.Bite.type;
-
-        }else if (x == 20) {
-
-            return MonsterAttackType.Swipe.type;
-        } else {
-            return MonsterAttackType.Claw.type;
-        }
-    }
-*/
 
 
     public String getName() {

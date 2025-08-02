@@ -79,9 +79,7 @@ public class gameMap {
 
             System.out.println(Arrays.toString(myMap[l]));
 
-
         }
-
 
         Random random = new Random();
 
@@ -92,16 +90,13 @@ public class gameMap {
 
         } while (enemyRow == 0 && enemyColumn == 0);
 
-
         row = 0;
 
         column = 0;
 
         int[] enemyLocation= new int[]{enemyRow, enemyColumn};
 
-
         for (int i = 0; i < 100; i++) {
-
 
 
             Scanner myObj = new Scanner(System.in);  // Create a Scanner object
@@ -148,10 +143,6 @@ public class gameMap {
             }
 
 
-
-
-
-
             for (int l = 0; l < myMap.length; l++) {
 
                 System.out.println(Arrays.toString(myMap[l]));
@@ -164,21 +155,11 @@ public class gameMap {
 
                 encounter.Combat();
             }
-
-
-
         }
-
-
-
 
     }
 
-
-
-     /*   System.out.println("enemyRow: "+enemyRow);
-        System.out.println("enemyColumn: "+enemyColumn);*/
-
+/*
 
     public static int[] enemyLocation(int enemyRow, int enemyColumn) {
 
@@ -189,6 +170,7 @@ public class gameMap {
         return enemyLocation;
     }
 
+*/
 
 
 
