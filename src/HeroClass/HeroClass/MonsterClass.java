@@ -3,7 +3,7 @@ package HeroClass;
 
 import java.util.Random;
 
- class MonsterClass  extends  GameEntity{
+public class MonsterClass  extends  GameEntity{
 
     private String name;
 

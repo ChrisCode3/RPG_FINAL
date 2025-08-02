@@ -5,71 +5,49 @@ import java.util.*;
 
 
 
-public class gameMap {
+public class GameMap {
 
     private HeroClass player;
-    private ArrayList<MonsterClass> manyEnemy;
+    private List<MonsterClass> manyEnemy;
 
     int enemyRow = 0;
-
     int enemyColumn = 0;
-
 
     int row = 4;
     int column = 4;
     int startingLocation = 3;
 
-
     // Directions
-
     final int Up_Key_W = -1; // y axis
     final int Down_Key_S = +1; // y axis
     final int Right_Key_D = +1;// x axis
     final int Left_Key_A = -1; // x axis
 
-    public gameMap(HeroClass player, ArrayList<MonsterClass> manyEnemy) {
-
+    public GameMap(HeroClass player, List<MonsterClass> manyEnemy) {
         this.player = player;
-
         this.manyEnemy = manyEnemy;
-
         MonsterClass enemy = manyEnemy.get(0);
-
-
     }
 
 
 
     public static int DirectionY(int a) {
         // Example: return 0 = up, 1 = down, 2 = left, 3 = right
-
         return a; // Invalid input
     }
 
 
     public static int DirectionX(int a) {
         // Example: return 0 = up, 1 = down, 2 = left, 3 = right
-
         return a; // Invalid input
     }
 
 
     public void traverseMap() {
 
-
-
-
-
-
-
         MonsterClass enemy = manyEnemy.get(0);
-
         CombatSystem encounter  = new CombatSystem( player ,manyEnemy);
-
-
-
         GameEntity[][] myMap = new GameEntity[row][column];
-
         myMap[0][0] = player;
 
      //   myMap[2][0] = enemy;

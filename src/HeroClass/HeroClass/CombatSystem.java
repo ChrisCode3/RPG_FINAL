@@ -2,37 +2,28 @@ package HeroClass;
 
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CombatSystem {
 
 
     private final HeroClass player;
-    private final ArrayList<MonsterClass> manyEnemy;
+    private final List<MonsterClass> manyEnemy;
 
-
-    public CombatSystem(HeroClass player, ArrayList<MonsterClass> manyEnemy) {
-
+    public CombatSystem(HeroClass player, List<MonsterClass> manyEnemy) {
         this.player = player;
         this.manyEnemy = manyEnemy;
-
     }
 
         public void Map () {
-
-
             int[][] myMap = {
                     {0, 0, 0,},
                     {0, 0, 0},
                     {0, 0, 0}
             };
-
-
             int doom  = 2893;
-
             myMap[0][2] = doom;
-
             System.out.println( " this is in the myap " +  myMap[0][2]);
-
         }
 
 

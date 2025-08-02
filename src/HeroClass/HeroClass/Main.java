@@ -1,45 +1,58 @@
 package HeroClass;
 
+import java.util.List;
+import java.util.Map;
+import java.util.function.Supplier;
+
 class Main {
 
     static void warScream () {
-
         System.out.println(" For the empreszxsssror ");
-
     }
-
 
     public static void main(String[] args) {
+        List<MonsterClass> monsters = loadMonsters();
+        HeroClass hero = getHeroes().get(HERO.WARRIOR.getName()).get();
+        StartGame newGame = new StartGame(monsters, hero);
 
-        HeroClass Warrior = new HeroClass("Hero", "Warrior", 9999, 1, 8, 1);
-        
-        HeroClass Wizard = new HeroClass("Magnus", "Wizard", 50, 2, 8, 20);
-
-        HeroClass Barbarian = new HeroClass( " Rock " , "Barbarian " , 45 , 20 , 20 , 5 );
-
-        MonsterClass Frank = new MonsterClass( "Monster " , 1000 , 1 , 100);
-
-        MonsterClass Bob = new MonsterClass( " Monster " , 1000 , 1 , 100);
-
-        MonsterClass Deep = new MonsterClass( "Monster " , 1000 , 1 , 100);
-
-        StartGame newGame = new StartGame();
-
-        newGame.monsters.add(Frank);
-
-        newGame.monsters.add(Bob);
-
-        newGame.monsters.add(Deep);
-
-        newGame.classes.add(Warrior);
-
-        newGame.monsters.add(Frank);
-
-        gameMap testMap = new gameMap(Warrior , newGame.monsters);
-
+        GameMap testMap = new GameMap(newGame.getHero() , newGame.getMonsters());
         testMap.traverseMap();
-
     }
+
+
+    private static List<MonsterClass> loadMonsters(){
+        MonsterClass frank = new MonsterClass( "Monster " , 1000 , 1 , 100);
+        MonsterClass bob = new MonsterClass( " Monster " , 1000 , 1 , 100);
+        MonsterClass deep = new MonsterClass( "Monster " , 1000 , 1 , 100);
+        return List.of(frank,bob,deep);
+    }
+
+    private static Map<String,Supplier<HeroClass>> getHeroes(){
+        return Map.of(
+                "Hero", () -> new HeroClass("Hero", "Warrior", 100, 1, 8, 1),
+                "Magnus" ,() ->new HeroClass("Magnus", "Wizard", 50, 2, 8, 20),
+                "Rock" ,() -> new HeroClass( "Rock " , "Barbarian " , 45 , 20 , 20 ,20)
+        );
+    }
+
+
+    enum HERO{
+        WARRIOR("Hero"), WIZARD("Magnus"), BARBARIAN("Rock");
+
+        private String name;
+
+        HERO(String name) {
+            this.name = name;
+        }
+
+        public String getName(){
+            return name;
+        }
+    }
+
+
+
+
 }
 
 

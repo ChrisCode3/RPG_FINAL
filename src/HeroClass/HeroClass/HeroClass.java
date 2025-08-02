@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 
-class HeroClass  extends  GameEntity {
+public class HeroClass  extends  GameEntity {
 
     public enum AttackType {
         SLASH("Slash", 30),
