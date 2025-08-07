@@ -16,8 +16,11 @@ public class CombatSystem {
     // is calls the  attacks from player and the monster and subtracts them from their life total until someone hp is 0
 
     public void Combat() {
-        System.out.println("starting life " + player.hp);
         MonsterClass enemy = manyEnemy.get(0);
+        System.out.println("Your hp is : " + player.hp);
+
+        System.out.println("The monsters hp  " + enemy.hp);
+
         while (player.hp > 0 && enemy.hp > 0) {
 
             System.out.println("   ");

@@ -6,13 +6,12 @@ public class GameMap {
 
     private HeroClass player;
     private List<MonsterClass> manyEnemy;
-
     int enemyRow = 0;
     int enemyColumn = 0;
 
     /// size of the map
-    int row = 4;
-    int column = 4;
+    int row = 6;
+    int column = 6;
     ///  ensuring the boundaries of the map
     int boundariesRow = row - 1;
     int boundariesColumn = column - 1;
@@ -32,15 +31,15 @@ public class GameMap {
     public static int DirectionY(int a) {return a;}
     public static int DirectionX(int a) {return a;}
 
-
     // method that shows the playable map
     // the hero is marked as H
-    public static void printMap(Object[][] map) {
-        for (int i = 0; i < map.length; i++) {
-            for (int j = 0; j < map[i].length; j++) {
-                if (map[i][j] == null) {
+    public static void printMap(GameEntity[][] map) {
+
+        for (GameEntity[] gameEntities : map) {
+            for (GameEntity gameEntity : gameEntities) {
+                if (gameEntity == null) {
                     System.out.print(". "); // empty space
-                } else if (map[i][j] instanceof HeroClass) {
+                } else if (gameEntity instanceof HeroClass) {
                     System.out.print("H "); // Hero marker
                 } else {
                     System.out.print("? "); // unknown object
@@ -59,8 +58,8 @@ public class GameMap {
 
         //  loop to create a random position for the monster which is not {0,0}
         do {
-            enemyRow = random.nextInt(4);
-            enemyColumn = random.nextInt(4);
+            enemyRow = random.nextInt(6);
+            enemyColumn = random.nextInt(6);
         } while (enemyRow == 0 && enemyColumn == 0);
 
         row = 0;
@@ -71,12 +70,13 @@ public class GameMap {
 
         // while the player has over zero life the game still runs.
         // movement is controlled via the wasd keys.
+        // each time wasd is pressed the character moves 1 index in the direction inputted
             while ( player.getHp() > 0) {
                 printMap(myMap);
             System.out.println(" Move your character");
             String userName = myObj.nextLine();
 
-            if (Objects.equals(userName, "s") && row < boundariesRow  + 1 ) {
+            if (Objects.equals(userName, "s") && row < boundariesRow) {
                 row = row  + DirectionY(Down_Key_S);
                 myMap[row][column] = this.player;
                 myMap[row - 1][column] = null;

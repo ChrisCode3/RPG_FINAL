@@ -16,7 +16,7 @@ public class MonsterClass  extends  GameEntity{
         this.str = str;
     }
 
-    // enum to cleanly have the separate attack types and damage
+    // enum to cleanly separate attack types and damage
     public enum MonsterAttackType {
         Bite(" Bite", 10),
         Swipe(" Swipe", 10),
