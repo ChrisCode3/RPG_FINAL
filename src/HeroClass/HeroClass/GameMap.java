@@ -76,10 +76,10 @@ public class GameMap {
             System.out.println(" Move your character");
             String userName = myObj.nextLine();
 
-            if (Objects.equals(userName, "s") && row < boundariesRow) {
+            if (Objects.equals(userName, "s") && row < boundariesRow) {    /// check for map edges
                 row = row  + DirectionY(Down_Key_S);
                 myMap[row][column] = this.player;
-                myMap[row - 1][column] = null;
+                myMap[row - 1][column] = null; // previous position becomes null
             }
             if (Objects.equals(userName, "w")  && row > 0 ) {
                 row = row  +DirectionY(Up_Key_W);
