@@ -6,19 +6,15 @@ import java.util.function.Supplier;
 
 class Main {
 
-    static void warScream () {
-        System.out.println(" For the empreszxsssror ");
-    }
-
     public static void main(String[] args) {
         List<MonsterClass> monsters = loadMonsters();
         HeroClass hero = getHeroes().get(HERO.WARRIOR.getName()).get();
+
         StartGame newGame = new StartGame(monsters, hero);
 
         GameMap testMap = new GameMap(newGame.getHero() , newGame.getMonsters());
         testMap.traverseMap();
     }
-
 
     private static List<MonsterClass> loadMonsters(){
         MonsterClass frank = new MonsterClass( "Monster " , 1000 , 1 , 100);
@@ -35,16 +31,12 @@ class Main {
         );
     }
 
-
     enum HERO{
         WARRIOR("Hero"), WIZARD("Magnus"), BARBARIAN("Rock");
-
         private String name;
-
         HERO(String name) {
             this.name = name;
         }
-
         public String getName(){
             return name;
         }

@@ -1,9 +1,6 @@
 package HeroClass;
 
-
 import java.util.*;
-
-
 
 public class GameMap {
 
@@ -13,9 +10,12 @@ public class GameMap {
     int enemyRow = 0;
     int enemyColumn = 0;
 
+    /// size of the map
     int row = 4;
     int column = 4;
-    int startingLocation = 3;
+    ///  ensuring the boundaries of the map
+    int boundariesRow = row - 1;
+    int boundariesColumn = column - 1;
 
     // Directions
     final int Up_Key_W = -1; // y axis
@@ -26,118 +26,82 @@ public class GameMap {
     public GameMap(HeroClass player, List<MonsterClass> manyEnemy) {
         this.player = player;
         this.manyEnemy = manyEnemy;
-        MonsterClass enemy = manyEnemy.get(0);
+   //     MonsterClass enemy = manyEnemy.get(0); this feature here is for in the implementation of many enemies
     }
 
+    public static int DirectionY(int a) {return a;}
+    public static int DirectionX(int a) {return a;}
 
 
-    public static int DirectionY(int a) {
-        // Example: return 0 = up, 1 = down, 2 = left, 3 = right
-        return a; // Invalid input
+    // method that shows the playable map
+    // the hero is marked as H
+    public static void printMap(Object[][] map) {
+        for (int i = 0; i < map.length; i++) {
+            for (int j = 0; j < map[i].length; j++) {
+                if (map[i][j] == null) {
+                    System.out.print(". "); // empty space
+                } else if (map[i][j] instanceof HeroClass) {
+                    System.out.print("H "); // Hero marker
+                } else {
+                    System.out.print("? "); // unknown object
+                }
+            }
+            System.out.println(); // new line after each row
+        }
     }
 
-
-    public static int DirectionX(int a) {
-        // Example: return 0 = up, 1 = down, 2 = left, 3 = right
-        return a; // Invalid input
-    }
-
-
+    // The method which contains the logic for moving in the map and encountering enemies
     public void traverseMap() {
-
-        MonsterClass enemy = manyEnemy.get(0);
         CombatSystem encounter  = new CombatSystem( player ,manyEnemy);
         GameEntity[][] myMap = new GameEntity[row][column];
         myMap[0][0] = player;
-
-
-
-
-        for (int l = 0; l < myMap.length; l++) {
-
-            System.out.println(Arrays.toString(myMap[l]));
-
-        }
-
         Random random = new Random();
 
+        //  loop to create a random position for the monster which is not {0,0}
         do {
-
             enemyRow = random.nextInt(4);
             enemyColumn = random.nextInt(4);
-
         } while (enemyRow == 0 && enemyColumn == 0);
 
         row = 0;
-
         column = 0;
-
         int[] enemyLocation= new int[]{enemyRow, enemyColumn};
+        Scanner myObj = new Scanner(System.in);
 
-        for (int i = 0; i < 100; i++) {
-            Scanner myObj = new Scanner(System.in);  // Create a Scanner object
+
+        // while the player has over zero life the game still runs.
+        // movement is controlled via the wasd keys.
+            while ( player.getHp() > 0) {
+                printMap(myMap);
             System.out.println(" Move your character");
+            String userName = myObj.nextLine();
 
-            String userName = myObj.nextLine();  // Read user input
-
-            if (Objects.equals(userName, "s")) {
-               row  = row  + DirectionY(Down_Key_S);
+            if (Objects.equals(userName, "s") && row < boundariesRow  + 1 ) {
+                row = row  + DirectionY(Down_Key_S);
                 myMap[row][column] = this.player;
-               myMap[row - 1][column] = null;
+                myMap[row - 1][column] = null;
             }
-            if (Objects.equals(userName, "w")) {
-
-               row= row  +DirectionY(Up_Key_W);
+            if (Objects.equals(userName, "w")  && row > 0 ) {
+                row = row  +DirectionY(Up_Key_W);
                 myMap[row][column] = this.player;
                 myMap[row +1 ][column] = null;
             }
-            if (Objects.equals(userName, "d") )  {
-
+            if (Objects.equals(userName, "d") &&  column < boundariesColumn )  {
                 column = column +DirectionX(Right_Key_D);
-
-                System.out.println( " the row when  d IS pressed is : " + row);
                 myMap[row][column] = this.player;
                 myMap[row][column - 1] = null;
 
-            }   if (Objects.equals(userName, "a"))  {
-
+            }   if (Objects.equals(userName, "a") && column > 0)  {
                 column = column +DirectionX(Left_Key_A);
                 myMap[row][column] = this.player;
-                 myMap[row][column + 1] = null;
+                myMap[row][column + 1] = null;
             }
 
-            for (int l = 0; l < myMap.length; l++) {
-
-                System.out.println(Arrays.toString(myMap[l]));
-
-
-            }
-
+            // if the players position ends up in the position a monster is combat ensures
             if (myMap[row][column] == myMap[enemyLocation[0]][enemyLocation[1]]) {
                 System.out.println( " there is a monster here");
-
                 encounter.Combat();
             }
         }
-
     }
-
-/*
-
-    public static int[] enemyLocation(int enemyRow, int enemyColumn) {
-
-        int[] enemyLocation = new int[]{enemyRow, enemyColumn};
-
-        System.out.println(Arrays.toString(enemyLocation));
-
-        return enemyLocation;
-    }
-
-*/
-
-
-
-
-
-
 }
