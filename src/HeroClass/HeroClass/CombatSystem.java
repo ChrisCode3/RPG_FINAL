@@ -21,11 +21,17 @@ public class CombatSystem {
 
         System.out.println("The monsters hp  " + enemy.hp);
 
+        int combatRound = 1;
+
+        System.out.println("   ");
         while (player.hp > 0 && enemy.hp > 0) {
 
+            System.out.println("Round  :" + combatRound );
+
+            System.out.println("Combat Starts" );
             System.out.println("   ");
             player.hp = (int) (player.hp - enemy.getRandomAttack());
-            System.out.println( "You have " + player.hp + " life left");
+            System.out.println( "You have " + player.hp + " hp left");
             enemy.hp = (int) (enemy.hp - player.getAttack());
             System.out.println( " The monster has " + enemy.getHp() + " life left");
             if ( player.hp < 0 ) {
@@ -33,7 +39,7 @@ public class CombatSystem {
             } if ( enemy.hp < 0 ) {
                 System.out.println(" You have beat the monster");
             }
-
+            combatRound = combatRound +1;
         }
     }
 }

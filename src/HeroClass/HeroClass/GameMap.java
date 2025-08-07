@@ -10,8 +10,8 @@ public class GameMap {
     int enemyColumn = 0;
 
     /// size of the map
-    int row = 6;
-    int column = 6;
+    int row = 5;
+    int column = 5;
     ///  ensuring the boundaries of the map
     int boundariesRow = row - 1;
     int boundariesColumn = column - 1;
@@ -58,8 +58,8 @@ public class GameMap {
 
         //  loop to create a random position for the monster which is not {0,0}
         do {
-            enemyRow = random.nextInt(6);
-            enemyColumn = random.nextInt(6);
+            enemyRow = random.nextInt(row);
+            enemyColumn = random.nextInt(column);
         } while (enemyRow == 0 && enemyColumn == 0);
 
         row = 0;
@@ -99,7 +99,7 @@ public class GameMap {
 
             // if the players position ends up in the position a monster is combat ensures
             if (myMap[row][column] == myMap[enemyLocation[0]][enemyLocation[1]]) {
-                System.out.println( " there is a monster here");
+                System.out.println("You have found a monster!!");
                 encounter.Combat();
             }
         }

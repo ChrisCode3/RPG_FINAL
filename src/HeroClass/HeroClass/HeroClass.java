@@ -24,7 +24,7 @@ public class HeroClass  extends  GameEntity {
         Scanner myScanner = new Scanner(System.in);
         while (true) {
             System.out.println("Enter your attack");
-            System.out.println(" this are the options" + Arrays.toString(AttackType.values()));
+            System.out.println("These are the options " + Arrays.toString(AttackType.values()));
             String userAttack = myScanner.nextLine().trim().toUpperCase();
             try {
                 AttackType attack = AttackType.valueOf(userAttack);

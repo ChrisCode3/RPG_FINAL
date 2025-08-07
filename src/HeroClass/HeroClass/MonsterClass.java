@@ -39,7 +39,7 @@ public class MonsterClass  extends  GameEntity{
         MonsterAttackType[] values = MonsterAttackType.values();
         Random random = new Random();
         int index = random.nextInt(values.length);  // get random index
-        System.out.println(" The attack is" + getRandomAttackType(index) + " for " + values[index].damage() + " damage");
+        System.out.println("The monster uses" + getRandomAttackType(index) + " for " + values[index].damage() + " damage");
         return values[index].damage();
     }
     //  method to return the type of the random attack used.
