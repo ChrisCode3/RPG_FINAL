@@ -58,9 +58,9 @@ java -cp out Binary_Exercise2.Binary_Calculator_Multiplication
 ## Technologies
 
 - Java
-- Arrays and 2D Arrays
 - Scanner for user input
 - Maven
+- Git for version control and different features
 
 ## License
 
