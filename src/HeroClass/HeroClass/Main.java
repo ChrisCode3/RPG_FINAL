@@ -13,6 +13,12 @@ class Main {
 
         // Create a game map and start traversing it
         GameMap testMap = new GameMap(newGame.getHero() , newGame.getMonsters());
+
+
+        System.out.println("The game has begun");
+        System.out.println("Use WASD to move your Hero");
+        System.out.println("Then press ENTER to input it");
+
         testMap.traverseMap();
     }
 //  Loads a list of predefined monsters for the game.

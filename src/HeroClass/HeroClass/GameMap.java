@@ -6,7 +6,7 @@ public class GameMap {
 
     private HeroClass player;
     private List<MonsterClass> manyEnemy;
-    int enemyRow = 0;
+    int enemyRow = 0; // initializing the 2 variables for the enemy location
     int enemyColumn = 0;
 
     /// size of the map
