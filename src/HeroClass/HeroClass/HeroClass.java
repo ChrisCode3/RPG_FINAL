@@ -4,7 +4,7 @@ package HeroClass;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class HeroClass  extends  GameEntity {
+public class HeroClass  implements   GameEntity {
     // enums to control and select the type of attacks and damage available.
     public enum AttackType {
         SLASH("Slash", 2000),
