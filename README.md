@@ -4,48 +4,28 @@ Java console applications thats simulates an old school RPG game traversing in a
 
 ## Overview
 
-- ** ** — Performs binary multiplication using 2D arrays and grid-based calculation
-- **Binary Addition Calculator** — Performs binary addition with custom carry-over logic
-
-Both calculators implement binary arithmetic rules manually without using built-in conversion methods.
+ This RPG lets the player explore a grid-based map, encounter monsters, and engage in turn-based combat. The design follows clean OOP practices with separate classes handling game logic, characters, combat mechanics, and map navigation.
 
 ## Installation
 
 ```bash
-# Clone the repository
-git clone https://github.com/yourusername/Binary_Exercises.git
-cd Binary_Exercises
+# Clone the repo
+git clone https://github.com/yourusername/RPG_Final.git
+cd RPG_Final
 
-# Compile and run
-javac -d out src/main/java/Binary_Exercise1/*.java
-javac -d out src/main/java/Binary_Exercise2/*.java
+# Build with Maven
+mvn compile
 
-java -cp out Binary_Exercise1.Binary_Addiction
-java -cp out Binary_Exercise2.Binary_Calculator_Multiplication
+# Run the game
+mvn exec:java -Dexec.mainClass="HeroClass.HeroClass.Main"
 ```
 
 ## Features
-
-#### Binary Arithmetic Rules
-
-| **Addition Rules** | **Multiplication Rules** |
-|-------------------|-------------------------|
-| `0 + 0 = 0`       | `0 × 0 = 0`            |
-| `0 + 1 = 1`       | `0 × 1 = 0`            |
-| `1 + 0 = 1`       | `1 × 0 = 0`            |
-| `1 + 1 = 0 (carry 1)` | `1 × 1 = 1`        |
-
-
-### Binary Addition
-- Manual binary addition with proper carry-over handling
-- Processes multi-digit binary numbers
-- Example: `101111 + 111 = 110110`
-
-### Binary Multiplication
-- Grid-based multiplication using 2D arrays
-- Interactive user input
-- Visual display of calculation steps
-- Example: `111 × 110 = 101010`
+- Grid-based map navigation
+- Random monster encounters
+- Stat tracking for player and enemies
+- Basic input handling via console
+- Modular OOP design for easy expansion
 
 ## Screenshots
 ![Start of Gamen](/docs/Start_of_Game.PNG)
@@ -58,9 +38,10 @@ java -cp out Binary_Exercise2.Binary_Calculator_Multiplication
 ## Technologies
 
 - Java
-- Arrays and 2D Arrays
+- OOP
 - Scanner for user input
 - Maven
+- Git (version control)
 
 ## License
 
