@@ -38,11 +38,16 @@ public class CombatSystem {
                 break;
             } if ( enemy.hp < 0 ) {
                 System.out.println(" You have beat the monster");
+
+
+
             }
             enemy.hp = (int) (enemy.hp - player.getAttack());
             System.out.println( " The monster has " + enemy.getHp() + " life left");
 
             combatRound = combatRound +1;
+
+
         }
     }
 }

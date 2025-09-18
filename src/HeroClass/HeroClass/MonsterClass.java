@@ -44,10 +44,8 @@ public class MonsterClass  implements GameEntity{
     }
     //  method to return the type of the random attack used.
     public static String getRandomAttackType(int index) {
-
         MonsterAttackType[] values = MonsterAttackType.values();
         return values[index].type;
-
     }
 
     @Override

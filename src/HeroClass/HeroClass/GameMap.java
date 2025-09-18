@@ -12,6 +12,7 @@ public class GameMap {
     /// size of the map
     int row = 5;
     int column = 5;
+
     ///  ensuring the boundaries of the map
     int boundariesRow = row - 1;
     int boundariesColumn = column - 1;
@@ -34,7 +35,6 @@ public class GameMap {
     // method that shows the playable map
     // the hero is marked as H
     public static void printMap(GameEntity[][] map) {
-
         for (GameEntity[] gameEntities : map) {
             for (GameEntity gameEntity : gameEntities) {
                 if (gameEntity == null) {
@@ -42,18 +42,19 @@ public class GameMap {
                 } else if (gameEntity instanceof HeroClass) {
                     System.out.print("H "); // Hero marker
                 } else {
-                    System.out.print("? "); // unknown object
+                    System.out.print("."); // unknown object
                 }
-            }
-            System.out.println(); // new line after each row
+            } System.out.println(); // new line after each row
         }
     }
 
     // The method which contains the logic for moving in the map and encountering enemies
     public void traverseMap() {
         CombatSystem encounter  = new CombatSystem( player ,manyEnemy);
+
         GameEntity[][] myMap = new GameEntity[row][column];
         myMap[0][0] = player;
+
         Random random = new Random();
 
         //  loop to create a random position for the monster which is not {0,0}
@@ -90,13 +91,12 @@ public class GameMap {
                 column = column +DirectionX(Right_Key_D);
                 myMap[row][column] = this.player;
                 myMap[row][column - 1] = null;
-
-            }   if (Objects.equals(inputMovement, "a") && column > 0)  {
+            }
+            if (Objects.equals(inputMovement, "a") && column > 0)  {
                 column = column +DirectionX(Left_Key_A);
                 myMap[row][column] = this.player;
                 myMap[row][column + 1] = null;
             }
-
             // if the players position ends up in the position a monster is combat ensures
             if (myMap[row][column] == myMap[enemyLocation[0]][enemyLocation[1]]) {
                 System.out.println("You have found a monster!!");
