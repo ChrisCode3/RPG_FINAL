@@ -62,8 +62,9 @@ public class MonsterClass  implements GameEntity{
     public void setName(String name) {
         this.name = name;
     }
+
     public int getHp() {
-        return hp;
+        if (hp <= 0) {return 0;} else { return hp;}
     }
     public void setHp(int hp) {
         this.hp = hp;

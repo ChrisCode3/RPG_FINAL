@@ -1,10 +1,12 @@
 package HeroClass;
 
-
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class HeroClass  implements   GameEntity {
+
+// a class which contains all properties and methods for HeroClass which is the playable hero.
+
+public class HeroClass  implements GameEntity {
     // enums to control and select the type of attacks and damage available.
     public enum AttackType {
         SLASH("Slash", 2000),
@@ -19,21 +21,21 @@ public class HeroClass  implements   GameEntity {
             this.damage = damage;
         }
     }
-// method for the player to select which attack to use - also throw an error if the player does not select one of the 3 options availible.
+// method for the player to select which attack to use - also throw an error if the player does not select one of the 3 options available.
     public int getAttack() {
         Scanner myScanner = new Scanner(System.in);
         while (true) {
             System.out.println("Enter your attack");
             System.out.println("These are the options " + Arrays.toString(AttackType.values()));
             String userAttack = myScanner.nextLine().trim().toUpperCase();
-            try {
+          try {
                 AttackType attack = AttackType.valueOf(userAttack);
                 System.out.println(" you use " + attack.type + " the damage of the attack is " + attack.damage);
                 return attack.damage;
             } catch (IllegalArgumentException e) {
-                System.out.println("this is not the correct attack - try again");
+               System.out.println("this is not the correct attack - try again");
             }
-        }
+       }
     }
 
     private String name;

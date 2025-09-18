@@ -32,13 +32,16 @@ public class CombatSystem {
             System.out.println("   ");
             player.hp = (int) (player.hp - enemy.getRandomAttack());
             System.out.println( "You have " + player.hp + " hp left");
-            enemy.hp = (int) (enemy.hp - player.getAttack());
-            System.out.println( " The monster has " + enemy.getHp() + " life left");
-            if ( player.hp < 0 ) {
-                System.out.println(" you are dead");
+            if ( player.hp <= 0 ) {
+                System.out.println("you are dead");
+                System.out.println(" Game Over!!");
+                break;
             } if ( enemy.hp < 0 ) {
                 System.out.println(" You have beat the monster");
             }
+            enemy.hp = (int) (enemy.hp - player.getAttack());
+            System.out.println( " The monster has " + enemy.getHp() + " life left");
+
             combatRound = combatRound +1;
         }
     }

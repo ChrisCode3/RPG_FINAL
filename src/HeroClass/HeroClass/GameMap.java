@@ -71,27 +71,27 @@ public class GameMap {
         // while the player has over zero life the game still runs.
         // movement is controlled via the wasd keys.
         // each time wasd is pressed the character moves 1 index in the direction inputted
-            while ( player.getHp() > 0) {
-                printMap(myMap);
+        while ( player.getHp() > 0) {
+            printMap(myMap);
             System.out.println(" Move your character");
-            String userName = myObj.nextLine();
+            String inputMovement = myObj.nextLine();
 
-            if (Objects.equals(userName, "s") && row < boundariesRow) {    /// check for map edges
+            if (Objects.equals(inputMovement, "s") && row < boundariesRow) {    /// check for map edges
                 row = row  + DirectionY(Down_Key_S);
                 myMap[row][column] = this.player;
                 myMap[row - 1][column] = null; // previous position becomes null
             }
-            if (Objects.equals(userName, "w")  && row > 0 ) {
+            if (Objects.equals(inputMovement, "w")  && row > 0 ) {
                 row = row  +DirectionY(Up_Key_W);
                 myMap[row][column] = this.player;
                 myMap[row +1 ][column] = null;
             }
-            if (Objects.equals(userName, "d") &&  column < boundariesColumn )  {
+            if (Objects.equals(inputMovement, "d") &&  column < boundariesColumn )  {
                 column = column +DirectionX(Right_Key_D);
                 myMap[row][column] = this.player;
                 myMap[row][column - 1] = null;
 
-            }   if (Objects.equals(userName, "a") && column > 0)  {
+            }   if (Objects.equals(inputMovement, "a") && column > 0)  {
                 column = column +DirectionX(Left_Key_A);
                 myMap[row][column] = this.player;
                 myMap[row][column + 1] = null;
