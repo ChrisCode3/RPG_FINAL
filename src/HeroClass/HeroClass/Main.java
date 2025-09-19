@@ -4,8 +4,9 @@ import java.util.List;
 import static HeroClass.StartGame.getHeroes;
 import static HeroClass.StartGame.loadMonsters;
 
+// entry of program where we beg
 class Main {
-    // entry of program where we load our heroes and monster and start the game loop
+
     public static void main(String[] args) {
 
         List<MonsterClass> monsters = loadMonsters();

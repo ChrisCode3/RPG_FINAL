@@ -5,6 +5,8 @@ import java.util.Scanner;
 
 
 // a class which contains all properties and methods for HeroClass which is the playable hero.
+// contains core attributes for the hero
+// and provides a selection of attacks
 
 public class HeroClass  implements GameEntity {
     // enums to control and select the type of attacks and damage available.
@@ -21,10 +23,12 @@ public class HeroClass  implements GameEntity {
             this.damage = damage;
         }
     }
-// method for the player to select which attack to use - also throw an error if the player does not select one of the 3 options available.
+// method for the player to select which attack to use using the console
+//  Re prompts until a valid attack is selected.
     public int getAttack() {
         Scanner myScanner = new Scanner(System.in);
         while (true) {
+            System.out.println(" ");
             System.out.println("Enter your attack");
             System.out.println("These are the options " + Arrays.toString(AttackType.values()));
             String userAttack = myScanner.nextLine().trim().toUpperCase();

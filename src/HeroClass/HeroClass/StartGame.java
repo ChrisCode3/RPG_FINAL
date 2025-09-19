@@ -1,11 +1,10 @@
 package HeroClass;
 
-
-
 import java.util.List;
 import java.util.Map;
 import java.util.function.Supplier;
 
+// class which loads up the Monsters and Heroes in the game
 public class StartGame {
   private List<MonsterClass> monsters ;
   private HeroClass hero ;
@@ -18,10 +17,10 @@ public class StartGame {
 
     //  Loads a list of predefined monsters for the game.
     static List<MonsterClass> loadMonsters(){
-        MonsterClass frank = new MonsterClass( "Monster " , 1000 , 1 , 100);
-        MonsterClass bob = new MonsterClass( " Monster " , 1000 , 1 , 100);
-        MonsterClass deep = new MonsterClass( "Monster " , 1000 , 1 , 100);
-        return List.of(frank,bob,deep);
+        MonsterClass goblin = new MonsterClass( "goblin " , 100 , 1 , 100);
+        MonsterClass orc = new MonsterClass( " orc " , 100 , 1 , 100);
+        MonsterClass  skeleton = new MonsterClass( "skeleton " , 100 , 1 , 100);
+        return List.of(goblin,orc,skeleton);
     }
 
 

@@ -2,6 +2,9 @@ package HeroClass;
 
 import java.util.*;
 
+// this class creates the gamemap and allows movement for the Hero
+//   places the monster in a random position
+// and starts the combat if a monster is found
 public class GameMap {
 
     private HeroClass player;
@@ -13,7 +16,7 @@ public class GameMap {
     int row = 5;
     int column = 5;
 
-    ///  ensuring the boundaries of the map
+    ///  ensuring the boundaries of the map which will be the size of map minus 1 as we are using the index
     int boundariesRow = row - 1;
     int boundariesColumn = column - 1;
 
@@ -23,14 +26,14 @@ public class GameMap {
     final int Right_Key_D = +1;// x axis
     final int Left_Key_A = -1; // x axis
 
+    public static int DirectionY(int a) {return a;}
+    public static int DirectionX(int a) {return a;}
+
     public GameMap(HeroClass player, List<MonsterClass> manyEnemy) {
         this.player = player;
         this.manyEnemy = manyEnemy;
    //     MonsterClass enemy = manyEnemy.get(0); this feature here is for in the implementation of many enemies
     }
-
-    public static int DirectionY(int a) {return a;}
-    public static int DirectionX(int a) {return a;}
 
     // method that shows the playable map
     // the hero is marked as H
@@ -77,22 +80,23 @@ public class GameMap {
             System.out.println(" Move your character");
             String inputMovement = myObj.nextLine();
 
-            if (Objects.equals(inputMovement, "s") && row < boundariesRow) {    /// check for map edges
+            // Converts uppercase to lowercase for the input so both will work
+            if (Objects.equals(inputMovement.toLowerCase(), "s") && row < boundariesRow) {    /// check for map edges
                 row = row  + DirectionY(Down_Key_S);
                 myMap[row][column] = this.player;
                 myMap[row - 1][column] = null; // previous position becomes null
             }
-            if (Objects.equals(inputMovement, "w")  && row > 0 ) {
+            if (Objects.equals(inputMovement.toLowerCase(), "w")  && row > 0 ) {
                 row = row  +DirectionY(Up_Key_W);
                 myMap[row][column] = this.player;
                 myMap[row +1 ][column] = null;
             }
-            if (Objects.equals(inputMovement, "d") &&  column < boundariesColumn )  {
+            if (Objects.equals(inputMovement.toLowerCase(), "d") &&  column < boundariesColumn )  {
                 column = column +DirectionX(Right_Key_D);
                 myMap[row][column] = this.player;
                 myMap[row][column - 1] = null;
             }
-            if (Objects.equals(inputMovement, "a") && column > 0)  {
+            if (Objects.equals(inputMovement.toLowerCase(), "a") && column > 0)  {
                 column = column +DirectionX(Left_Key_A);
                 myMap[row][column] = this.player;
                 myMap[row][column + 1] = null;

@@ -2,13 +2,13 @@ package HeroClass;
 
 import java.util.Random;
 
+// a class which contains all properties and methods for MonsterClass which is the playable hero.
 public class MonsterClass  implements GameEntity{
 
     private String name;
     public int hp;
     public double str;
     public double stam;
-
 
     public MonsterClass(String name, int hp, double str, double stam) {
         this.hp = hp;
@@ -32,7 +32,6 @@ public class MonsterClass  implements GameEntity{
 
         public int damage() {return damage;}
         public String type() {return type;}}
-
 
     // method to generate random attack from monster and returns the damage
     public  int getRandomAttack() {
@@ -60,27 +59,14 @@ public class MonsterClass  implements GameEntity{
     public void setName(String name) {
         this.name = name;
     }
+    public int getHp() {if (hp <= 0) {return 0;} else { return hp;}}
+    public void setHp(int hp) {this.hp = hp;}
+    public double getStr() {return str;}
+    public void setStr(double str) {this.str = str;}
+    public double getStam() {return stam;}
+    public void setStam(double stam) {this.stam = stam;}
 
-    public int getHp() {
-        if (hp <= 0) {return 0;} else { return hp;}
-    }
-    public void setHp(int hp) {
-        this.hp = hp;
-    }
-    public double getStr() {
-        return str;
-    }
-    public void setStr(double str) {
-        this.str = str;
-    }
-    public double getStam() {
-        return stam;
-    }
-    public void setStam(double stam) {
-        this.stam = stam;
-    }
-
-    }
+}
 
 
 
